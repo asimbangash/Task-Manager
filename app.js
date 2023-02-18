@@ -5,14 +5,14 @@ const connectDB = require("./db/connect");
 require("dotenv").config();
 const notFound = require('./middleware/not-found');
 const errorHandlerMiddleware = require('./middleware/error-handler');
-// const cors = require('cors');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 3000;
 
 // middleware
 app.use(express.static('./public'));
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 // route
 app.use("/api/v1",tasks);
 app.use(notFound);
